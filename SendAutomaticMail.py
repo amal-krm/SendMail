@@ -17,7 +17,7 @@ def send_email_pdf_figs(path_to_pdf, subject, message,destination):
 
 
     msg['Subject'] = subject
-    msg['From'] = 'KRIMI Amal'
+    msg['From'] = ''
     msg['To'] = destination
         # Insert the text to the msg going by e-mail
     msg.attach(MIMEText(message, "plain"))
@@ -30,8 +30,7 @@ def send_email_pdf_figs(path_to_pdf, subject, message,destination):
         # send msg
     server.send_message(msg)
 
-#send_email_pdf_figs("KRIMI_Amal.pdf","hello","message",'krimi.amal1234@gmail.com')
-# Using readlines()
+
 file1 = open('emails.txt', 'r')
 Lines = file1.readlines()
 Msg = ""
@@ -45,7 +44,7 @@ now = datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 print("date 1 === >", dt_string)
 for line in Lines:
-    send_email_pdf_figs("KRIMI_Amal.pdf", "Demande de stage", Msg, line.strip())
+    send_email_pdf_figs("", "", Msg, line.strip())
     count=count+1
     print(count)
 
